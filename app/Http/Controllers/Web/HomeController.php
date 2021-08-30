@@ -20,8 +20,24 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
+
     public function index()
     {
+        //
+        $allwebinars = Webinar::orderBy('updated_at', 'desc')
+                ->with([
+                    'teacher' => function ($qu) {
+                        $qu->select('id', 'full_name', 'avatar');
+                    },
+                    'reviews' => function ($query) {
+                        $query->where('status', 'active');
+                    },
+                    'tickets',
+                    'feature'
+                ])
+                ->limit(3)
+                ->get();
+        //
 
         $homeSectionsSettings = getHomeSectionsSettings();
 
@@ -304,6 +320,7 @@ class HomeController extends Controller
             'liveClassCount' => $liveClassCount,
             'offlineCourseCount' => $offlineCourseCount,
             'boxVideoOrImage' => $boxVideoOrImage ?? null,
+            'allwebinars' => $allwebinars,
         ];
 
         return view(getTemplate() . '.pages.frontend_home', $data);

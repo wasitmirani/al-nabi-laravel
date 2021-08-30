@@ -461,38 +461,23 @@
                     industry's standard dummy text </h5>
             </div>
         </div>
+        @if($allwebinars)
         <div class="row">
-            <div class="col-lg-4">
-                <div class="box-in">
-                    <img src="{{asset('/frontend/assets/images/courses-pic1.jpg')}}" alt="">
-                    <h3>Lorem Ipsum Dummy</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text. Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>
-                    <a href="#" class="read-btn">Read More</a>
+            @foreach($allwebinars as $allwebinar)
+                <div class="col-lg-4">
+                    <div class="box-in">
+                        <img src="{{ $allwebinar->thumbnail }}" class="img-fluid" alt="">
+                        <h3><a href="{{ $allwebinar->getUrl() }}">{{ $allwebinar->title }}</a></h3>
+                       <p> {!! Str::limit($allwebinar->description, 100) !!} </p>
+                        <a href="#" class="read-btn">Read More</a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="box-in">
-                    <img src="{{asset('/frontend/assets/images/courses-pic1.jpg')}}" alt="">
-                    <h3>Lorem Ipsum Dummy</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text. Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>
-                    <a href="#" class="read-btn">Read More</a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="box-in">
-                    <img src="{{asset('/frontend/assets/images/courses-pic1.jpg')}}" alt="">
-                    <h3>Lorem Ipsum Dummy</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text. Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>
-                    <a href="#" class="read-btn">Read More</a>
-                </div>
-            </div>
+            @endforeach
+
         </div>
+        @else
+        <div class="btn btn-danger">No Courses Available!</div>
+        @endif
         <div class="row">
             <div class="col-lg-12 text-center">
                 <a href="#" class="demo-btn">FREE DEMO</a>

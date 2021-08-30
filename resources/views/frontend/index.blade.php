@@ -460,8 +460,21 @@
                     industry's standard dummy text </h5>
             </div>
         </div>
+        @if ($webinars)
         <div class="row">
+            @foreach ($webinars as $webinar )
             <div class="col-lg-4">
+                <div class="box-in">
+                    <img src="{{ $webinar->thumbnail }}" alt="">
+                    <h3>Lorem Ipsum Dummy</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text. Lorem Ipsum is simply dummy text of the printing and
+                        typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>
+                    <a href="#" class="read-btn">Read More</a>
+                </div>
+            </div>
+            @endforeach
+            {{-- <div class="col-lg-4">
                 <div class="box-in">
                     <img src="/frontend/assets/images/courses-pic1.jpg" alt="">
                     <h3>Lorem Ipsum Dummy</h3>
@@ -480,18 +493,11 @@
                         typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>
                     <a href="#" class="read-btn">Read More</a>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="box-in">
-                    <img src="/frontend/assets/images/courses-pic1.jpg" alt="">
-                    <h3>Lorem Ipsum Dummy</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text. Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>
-                    <a href="#" class="read-btn">Read More</a>
-                </div>
-            </div>
+            </div> --}}
         </div>
+        @else
+        <div class="btn btn-danger">No Courses Available!</div>
+        @endif
         <div class="row">
             <div class="col-lg-12 text-center">
                 <a href="#" class="demo-btn">FREE DEMO</a>
