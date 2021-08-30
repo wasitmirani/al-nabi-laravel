@@ -3075,7 +3075,7 @@ pre {
     animation-fill-mode: forwards;
     -webkit-animation-timing-function: linear;
     animation-timing-function: linear;
-    background-size: 100%;
+    background-size: cover;
 }
 
 @media (max-width: 1199.98px) {
