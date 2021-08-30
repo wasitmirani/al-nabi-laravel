@@ -415,7 +415,7 @@
                                     </div>
                                     <div class="item">
                                         <div class="box">
-                                            <img src="/frontend/assets/images/books-pic2.png" alt="">
+                                            <img src="{{asset('/frontend/assets/images/books-pic2.png')}}" alt="">
                                             <h4>Lorem Ipsum</h4>
                                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting
                                                 industry. </p>
